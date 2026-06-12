@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قفّاز - Quffaz | نصنع ما يستحق أن يُرى</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Tajawal', 'sans-serif'] },
+                    colors: { primary: '#E50914', dark: '#0a0a0a', darker: '#050505' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; scroll-behavior: smooth; }
+        .glass-panel { background: rgba(25, 25, 25, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
+        .hover-scale { transition: transform 0.3s ease; }
+        .hover-scale:hover { transform: scale(1.02); }
+        .audio-wave-anim:hover .wave-bar { animation: sound 0.5s infinite alternate; }
+        @keyframes sound { 0% { height: 10px; } 100% { height: 30px; } }
+        .wave-bar { width: 4px; background: #E50914; border-radius: 2px; transition: all 0.2s; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 glass-panel py-4 transition-all duration-300">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-white tracking-widest">قفّاز <span class="text-primary text-xl">Quffaz</span></a>
+            <div class="hidden md:flex space-x-8 space-x-reverse text-gray-300 font-medium">
+                <a href="#hero" class="hover:text-primary transition">الرئيسية</a>
+                <a href="#about" class="hover:text-primary transition">من نحن</a>
+                <a href="#services" class="hover:text-primary transition">خدماتنا</a>
+                <a href="portfolio.html" class="hover:text-primary transition">معرض الأعمال</a>
+            </div>
+            <a href="#contact" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-red-700 transition font-bold">تواصل معنا</a>
+        </div>
+    </nav>
+
+    <header id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay loop muted playsinline class="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover opacity-40">
+            <source src="hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="absolute z-10 text-center px-4 w-full max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">نصنع ما يستحق أن <span class="text-primary">يُرى</span></h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed">
+                في "قفّاز"، نغزلُ خيوط الفكرة، ونحركُ الحواس بصوتٍ يأسر، وصورةٍ تبهر.
+            </p>
+            <div class="flex gap-4 justify-center">
+                <a href="portfolio.html" class="bg-primary text-white px-8 py-3 rounded-full text-lg font-bold hover:bg-red-700 transition">المس الإبداع</a>
+                <a href="#services" class="border border-white text-white px-8 py-3 rounded-full text-lg font-bold hover:bg-white hover:text-black transition">اكتشف أبعادنا</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-24 bg-dark">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-sm font-bold text-primary tracking-widest mb-2 uppercase">من نحن؟</h2>
+                    <h3 class="text-3xl font-bold mb-6">خلف كل تحفة.. يدٌ تصنعها</h3>
+                    <p class="text-gray-400 mb-4 leading-relaxed text-lg">
+                        "قفّاز" هي شركة سعودية متخصصة في خلق مجالات إبداعية واحترافية، تُعنى بصناعة الإنتاج الإعلامي المرئي والصوتي المميز.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed text-lg mb-6">
+                        في بيئة سعودية خصبة، نمدُّ أيدينا لنلتقط الأفكار من خارج الصندوق، ونحيكها بمعايير ترقى لتطلعات النخبة وتصنع الفارق في سوق المنافسة.
+                    </p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl relative">
+                    <div class="absolute -top-4 -right-4 text-primary text-6xl opacity-20"><i class="fas fa-quote-right"></i></div>
+                    <h4 class="text-2xl font-bold mb-4">قصّتنا</h4>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        القفّاز في فلسفتنا هو رمز الإتقان البارع والعناية الفائقة بأدق التفاصيل. تماماً كما تتحول المواد الخام بين أصابع الفنان إلى تحفة فنية نادرة؛ تتحول الأفكار في قفّاز إلى منجزات إعلامية تهتز لها الحواس.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        أصابعنا الخمسة تتكامل كفريق عمل واحد يغطي كافة أبعاد الإنتاج (الصورة، النور, الحركة، النغمة، والأثر الاستراتيجي) لنؤكد أننا لا ننتظر الإلهام العابر، بل نحيكه بدقة لنمنح كل عميل بصمة فنية فريدة، فالإبداع الحقيقي دائماً يُصنع بـ قفّاز.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-darker">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-primary tracking-widest mb-2">خدماتنا</h2>
+                <h3 class="text-4xl font-bold">الإنتاج المرئي <span class="text-gray-500 text-2xl block mt-2">حكايات تبصرها العين</span></h3>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">العدسة لدينا لا تنقل الواقع فحسب، بل تصنع الدهشة. نعتني بالزاوية، النور، وحركة المشهد لنروي قصتك البصرية بمعايير ترقى لذائقتك وتخلد لحظاتك.</p>
+            </div>
+
+            <div class="space-y-24">
+                <div>
+                    <h4 class="text-2xl font-bold mb-2 border-r-4 border-primary pr-4">الإعلانات التجارية</h4>
+                    <p class="text-gray-400 mb-8 pr-5">لقطات خاطفة وأفكار ذكية تحوّل المشاهد العابر إلى عميل دائم بروح تلامس مجتمعنا.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <video src="https://drive.google.com/uc?export=download&id=14zpiizgvRZmzwU5Eo_l_RE5givmHI3ph" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=1wTORQKa_vDFSGAK6KAmlzOeGnzXID7PV" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=1fxAvD-PmKJ8OyP0u2qsZ-R_R84qwrVjx" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=11TsYmsOg-Ir5YXsznHsqfxcRyMpQbWYx" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-2xl font-bold mb-2 border-r-4 border-primary pr-4">الأفلام الوثائقية</h4>
+                    <p class="text-gray-400 mb-8 pr-5">نحفظ الذاكرة، ونوثق الإرث، ونروي التاريخ الشخصي والمؤسسي بأسلوب سينمائي يلامس المشاعر.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <video src="https://drive.google.com/uc?export=download&id=11TsYmsOg-Ir5YXsznHsqfxcRyMpQbWYx" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=14zpiizgvRZmzwU5Eo_l_RE5givmHI3ph" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=1wTORQKa_vDFSGAK6KAmlzOeGnzXID7PV" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=1fxAvD-PmKJ8OyP0u2qsZ-R_R84qwrVjx" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-2xl font-bold mb-2 border-r-4 border-primary pr-4">المعارض والمؤتمرات والفعاليات</h4>
+                    <p class="text-gray-400 mb-8 pr-5">التغطية الشاملة لحدثك الرسمي؛ ننقل هيبة الحدث، تفاصيل اللقاءات، والزخم المؤسسي باحترافية.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <video src="https://drive.google.com/uc?export=download&id=1fxAvD-PmKJ8OyP0u2qsZ-R_R84qwrVjx" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=11TsYmsOg-Ir5YXsznHsqfxcRyMpQbWYx" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=14zpiizgvRZmzwU5Eo_l_RE5givmHI3ph" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=1wTORQKa_vDFSGAK6KAmlzOeGnzXID7PV" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-2xl font-bold mb-2 border-r-4 border-primary pr-4">المناسبات الخاصة والزيجات</h4>
+                    <p class="text-gray-400 mb-8 pr-5">لأن العمر ليلة، نحن في قفّاز نتولى حماية ذكرياتكم الأكثر حميمية وفرحاً، لتبقى حية ونابضة.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <video src="https://drive.google.com/uc?export=download&id=1wTORQKa_vDFSGAK6KAmlzOeGnzXID7PV" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=1fxAvD-PmKJ8OyP0u2qsZ-R_R84qwrVjx" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=11TsYmsOg-Ir5YXsznHsqfxcRyMpQbWYx" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                        <video src="https://drive.google.com/uc?export=download&id=14zpiizgvRZmzwU5Eo_l_RE5givmHI3ph" class="w-full h-48 object-cover rounded-lg glass-panel hover-scale" muted loop onmouseover="this.play()" onmouseout="this.pause()"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-dark relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none"></div>
+        <div class="container mx-auto px-6 max-w-6xl relative z-10">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl font-bold">الإنتاج الصوتي <span class="text-primary block mt-2 text-2xl">فنونٌ تحاكي الوجدان</span></h3>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">الصوت هو نصف الصورة، وهو البصمة التي لا تُنسى. في استوديوهات "قفّاز"، نملك الأذن الموسيقية لتأليف أبعاد سمعية تأسر الوجدان.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-2xl hover:border-primary transition-colors duration-300 audio-wave-anim group cursor-pointer">
+                    <div class="flex items-end gap-1 mb-6 h-8">
+                        <div class="wave-bar h-4"></div><div class="wave-bar h-6"></div><div class="wave-bar h-3"></div><div class="wave-bar h-8"></div><div class="wave-bar h-5"></div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 text-white group-hover:text-primary transition">الهويات السمعية</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">نترجم قيم ورؤية علامتك التجارية إلى بصمة صوتية ونغمة حصرية فريدة، تعزز حضورك ويتعرف عليها جمهورك بمجرد السماع.</p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl hover:border-primary transition-colors duration-300 audio-wave-anim group cursor-pointer">
+                    <div class="flex items-end gap-1 mb-6 h-8">
+                        <div class="wave-bar h-5"></div><div class="wave-bar h-8"></div><div class="wave-bar h-4"></div><div class="wave-bar h-7"></div><div class="wave-bar h-3"></div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 text-white group-hover:text-primary transition">الموسيقى والمؤثرات</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">نؤلف الخلفيات الموسيقية الأصيلة ونعالج هندسة المؤثرات الصوتية للأعمال المرئية، لتعميق الأثر الدرامي والجمالي للمشهد.</p>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl hover:border-primary transition-colors duration-300 audio-wave-anim group cursor-pointer">
+                    <div class="flex items-end gap-1 mb-6 h-8">
+                        <div class="wave-bar h-3"></div><div class="wave-bar h-5"></div><div class="wave-bar h-8"></div><div class="wave-bar h-4"></div><div class="wave-bar h-6"></div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 text-white group-hover:text-primary transition">مشاريع المناسبات</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">من الأناشيد والأغاني الخاصة، إلى الألحان الترحيبية المصممة خصيصاً لتناسب أجوائكم واحتفالاتكم الوطنية والخاصة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-primary relative">
+        <div class="container mx-auto px-6 text-center max-w-4xl relative z-10">
+            <h2 class="text-4xl font-bold mb-6 text-white">مشاريع صنعت خصيصاً لك</h2>
+            <p class="text-red-100 text-lg leading-relaxed mb-8">
+                الأفكار العظيمة لا تنمو في القوالب الجاهزة. إذا كان لديك مشروع فريد، مركب، أو يتطلب دمجاً فريداً بين الابداع البصري والسمعي على المدى الطويل؛ فنحن هنا لنحيك معك الملف الفني من الصفر، ونصيغ الرؤية، ونقدم لك التصور الإبداعي والمالي الذي يضمن ولادة مشروعك بشكل استثنائي.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-darker">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="glass-panel p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6">احكِ لنا فكرتك اليوم</h3>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" placeholder="الاسم" class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition">
+                            <input type="email" placeholder="البريد الإلكتروني" class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition">
+                        </div>
+                        <input type="text" placeholder="نوع المشروع (مرئي، صوتي، الخ)" class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition">
+                        <textarea placeholder="تفاصيل الفكرة..." rows="4" class="w-full bg-dark border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition"></textarea>
+                        <button type="button" class="w-full bg-primary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition">إرسال</button>
+                    </form>
+                </div>
+                
+                <div class="flex flex-col justify-center">
+                    <div class="mb-12">
+                        <h4 class="text-lg font-bold text-gray-400 mb-6 uppercase tracking-widest">شركاء النجاح</h4>
+                        <div class="flex flex-wrap gap-4 opacity-50">
+                            <div class="w-20 h-10 bg-gray-800 rounded"></div>
+                            <div class="w-20 h-10 bg-gray-800 rounded"></div>
+                            <div class="w-20 h-10 bg-gray-800 rounded"></div>
+                            <div class="w-20 h-10 bg-gray-800 rounded"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-4">قفّاز.. <span class="text-primary">الإبداع مقاسنا.</span></h2>
+                        <div class="flex space-x-4 space-x-reverse mt-6">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-6 text-center text-gray-600 text-sm">
+        <p>جميع الحقوق محفوظة لشركة قفّاز &copy; 2026</p>
+    </footer>
+
+</body>
+</html>

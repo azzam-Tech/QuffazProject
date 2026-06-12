@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>روائع قفّاز | معرض الأعمال</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Tajawal', 'sans-serif'] },
+                    colors: { primary: '#E50914', dark: '#0a0a0a', darker: '#050505' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #050505; color: #ffffff; }
+        .glass-panel { background: rgba(25, 25, 25, 0.8); backdrop-filter: blur(10px); }
+        .portfolio-item { transition: all 0.4s ease; cursor: pointer; }
+        .portfolio-item:hover img { transform: scale(1.05); }
+        .portfolio-overlay { background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="w-full glass-panel py-4 border-b border-gray-800">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-white tracking-widest">قفّاز</a>
+            <a href="index.html" class="text-gray-300 hover:text-primary transition font-medium">العودة للرئيسية <i class="fas fa-arrow-left mr-2"></i></a>
+        </div>
+    </nav>
+
+    <header class="py-20 text-center relative overflow-hidden bg-dark">
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-5xl font-bold mb-4">روائع <span class="text-primary">قفّاز</span></h1>
+            <p class="text-xl text-gray-400 mb-2">( أرشيف المنجزات )</p>
+            <p class="text-gray-500 max-w-2xl mx-auto mt-6">تصفّح كيف تحولت الأفكار بين أصابعنا إلى واقع ملموس ومسموع. اختر المسار واكتشف الدهشة.</p>
+        </div>
+    </header>
+
+    <section class="py-12 bg-darker min-h-screen">
+        <div class="container mx-auto px-6">
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="bg-primary text-white px-6 py-2 rounded-full font-bold">الكل</button>
+                <button class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full transition">أفلام وإعلانات</button>
+                <button class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full transition">تغطيات ومناسبات</button>
+                <button class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full transition">صوتيات وهويات</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
+                    <img src="https://drive.google.com/uc?export=view&id=17uRfuU9D7ZM4zWqo3b9t5u6KBJsItRb_" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-primary text-sm font-bold mb-1">إعلان تجاري</span>
+                        <h3 class="text-xl font-bold text-white">حملة العطور</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
+                    <img src="https://drive.google.com/uc?export=view&id=14zp3QNHa_ObxTJfIofyPyqfzh-Aum1tG" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-primary text-sm font-bold mb-1">فيلم وثائقي</span>
+                        <h3 class="text-xl font-bold text-white">ألوان الصحراء</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
+                    <img src="https://drive.google.com/uc?export=view&id=142SeMsEnpPyoNtucsSAwhLtYBZ38o9bm" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-primary text-sm font-bold mb-1">تغطية</span>
+                        <h3 class="text-xl font-bold text-white">موسم الرياض</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
+                    <img src="https://drive.google.com/uc?export=view&id=1jmHhhtGw6MWyX2A9nymN8w0K0FI4KJZS" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-primary text-sm font-bold mb-1">هوية سمعية</span>
+                        <h3 class="text-xl font-bold text-white">أثير المكان</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
+                    <img src="https://drive.google.com/uc?export=view&id=1uh6mABucf_ZJmLy29iCJEH2POHRVsv4D" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-primary text-sm font-bold mb-1">إعلان</span>
+                        <h3 class="text-xl font-bold text-white">قيادة الطموح</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
+                    <img src="https://drive.google.com/uc?export=view&id=1IDlNk_-eAF_PaiydDAovwr0DnbfT5NUG" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
+                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-primary text-sm font-bold mb-1">تغطية</span>
+                        <h3 class="text-xl font-bold text-white">التقنية تتكلم</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-6 text-center text-gray-600 text-sm">
+        <p>جميع الحقوق محفوظة لشركة قفّاز &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
