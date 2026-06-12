@@ -5,109 +5,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>روائع قفّاز | معرض الأعمال</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Tajawal', 'sans-serif'] },
-                    colors: { primary: '#E50914', dark: '#0a0a0a', darker: '#050505' }
+                    fontFamily: { sans: ['Cairo', 'sans-serif'] },
+                    colors: { primary: '#D01F1F', dark: '#0A0A0B', darker: '#050506', panel: '#141416' }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #050505; color: #ffffff; }
-        .glass-panel { background: rgba(25, 25, 25, 0.8); backdrop-filter: blur(10px); }
-        .portfolio-item { transition: all 0.4s ease; cursor: pointer; }
-        .portfolio-item:hover img { transform: scale(1.05); }
-        .portfolio-overlay { background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); }
+        body { background-color: #050506; color: #ffffff; }
+        .portfolio-card { transition: transform 0.4s ease, border-color 0.4s ease, opacity 0.4s ease; cursor: pointer; }
+        .portfolio-card:hover { transform: scale(1.02); border-color: #D01F1F; }
+        .filter-btn.active { background-color: #D01F1F !important; color: white !important; border-color: #D01F1F !important; }
+        
+        /* أكواد النافذة المنبثقة (Lightbox) */
+        .lb { position: fixed; inset: 0; z-index: 9990; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; }
+        .lb.on { display: flex; }
+        .lb-inner { position: relative; max-width: 90vw; max-height: 90vh; }
+        .lb-inner img { max-width: 88vw; max-height: 88vh; object-fit: contain; border-radius: 8px; }
+        .lb-close { position: absolute; top: -2.5rem; left: 0; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; line-height: 1; transition: 0.2s; }
+        .lb-close:hover { color: #D01F1F; }
+        .img-zoom::after { content: '\f00e'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: rgba(255,255,255,0.7); opacity: 0; transition: 0.3s; pointer-events: none; z-index: 10; }
+        .portfolio-card:hover .img-zoom::after { opacity: 1; color: #D01F1F; }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="antialiased">
 
-    <nav class="w-full glass-panel py-4 border-b border-gray-800">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="text-3xl font-bold text-white tracking-widest">قفّاز</a>
-            <a href="index.html" class="text-gray-300 hover:text-primary transition font-medium">العودة للرئيسية <i class="fas fa-arrow-left mr-2"></i></a>
-        </div>
-    </nav>
-
-    <header class="py-20 text-center relative overflow-hidden bg-dark">
-        <div class="container mx-auto px-4 relative z-10">
-            <h1 class="text-5xl font-bold mb-4">روائع <span class="text-primary">قفّاز</span></h1>
-            <p class="text-xl text-gray-400 mb-2">( أرشيف المنجزات )</p>
-            <p class="text-gray-500 max-w-2xl mx-auto mt-6">تصفّح كيف تحولت الأفكار بين أصابعنا إلى واقع ملموس ومسموع. اختر المسار واكتشف الدهشة.</p>
+    <header class="py-24 bg-dark border-b border-white/5">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-7 grid grid-cols-2 gap-4">
+                    <div class="bg-panel p-6 rounded border border-white/5 text-center"><div class="text-3xl font-black text-primary mb-1">+120</div><div class="text-xs text-gray-400 font-light">مشروع متميز</div></div>
+                    <div class="bg-panel p-6 rounded border border-white/5 text-center"><div class="text-3xl font-black text-primary mb-1">+60</div><div class="text-xs text-gray-400 font-light">عميل راضي</div></div>
+                    <div class="bg-panel p-6 rounded border border-white/5 text-center"><div class="text-3xl font-black text-primary mb-1">+15</div><div class="text-xs text-gray-400 font-light">جائزة دولية</div></div>
+                    <div class="bg-panel p-6 rounded border border-white/5 text-center"><div class="text-3xl font-black text-primary mb-1">8</div><div class="text-xs text-gray-400 font-light">سنوات خبرة</div></div>
+                </div>
+                <div class="md:col-span-5 md:text-right text-center">
+                    <span class="text-xs font-bold text-primary tracking-widest uppercase block mb-2">أرشيف المنجزات</span>
+                    <h1 class="text-4xl font-black mb-4">معرض الإبداع</h1>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">تصفّح كيف تحولت الأفكار بين أصابعنا إلى واقع ملموس ومسموع. اختر المسار واكتشف الدهشة.</p>
+                    <a href="index.html" class="inline-block mt-6 text-xs text-gray-400 hover:text-primary transition font-bold">← العودة للرئيسية</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="py-12 bg-darker min-h-screen">
-        <div class="container mx-auto px-6">
+    <section class="py-16 bg-darker min-h-screen">
+        <div class="container mx-auto px-6 max-w-6xl">
             
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="bg-primary text-white px-6 py-2 rounded-full font-bold">الكل</button>
-                <button class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full transition">أفلام وإعلانات</button>
-                <button class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full transition">تغطيات ومناسبات</button>
-                <button class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-full transition">صوتيات وهويات</button>
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active bg-panel border border-white/10 text-gray-300 text-xs font-bold px-5 py-2 rounded transition" data-filter="all">الكل</button>
+                <button class="filter-btn bg-panel border border-white/10 text-gray-300 text-xs font-bold px-5 py-2 rounded transition" data-filter="visual">أفلام وإعلانات</button>
+                <button class="filter-btn bg-panel border border-white/10 text-gray-300 text-xs font-bold px-5 py-2 rounded transition" data-filter="event">تغطيات ومناسبات</button>
+                <button class="filter-btn bg-panel border border-white/10 text-gray-300 text-xs font-bold px-5 py-2 rounded transition" data-filter="audio">صوتيات وهويات سمعية</button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
                 
-                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
-                    <img src="https://drive.google.com/uc?export=view&id=17uRfuU9D7ZM4zWqo3b9t5u6KBJsItRb_" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
-                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <span class="text-primary text-sm font-bold mb-1">إعلان تجاري</span>
-                        <h3 class="text-xl font-bold text-white">حملة العطور</h3>
+                <div class="portfolio-card bg-panel rounded-lg overflow-hidden border border-white/5 group" data-category="visual" onclick="openLb('img', 'https://drive.google.com/uc?export=view&id=14zp3QNHa_ObxTJfIofyPyqfzh-Aum1tG')">
+                    <div class="h-52 overflow-hidden relative img-zoom">
+                        <img src="https://drive.google.com/uc?export=view&id=14zp3QNHa_ObxTJfIofyPyqfzh-Aum1tG" alt="رائحة المكان" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <span class="absolute top-3 right-3 bg-black/60 text-primary font-bold text-[10px] px-2 py-1 rounded z-20">مرئي</span>
                     </div>
+                    <div class="p-4"><h3 class="font-bold text-base text-white">رائحة المكان</h3></div>
                 </div>
 
-                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
-                    <img src="https://drive.google.com/uc?export=view&id=14zp3QNHa_ObxTJfIofyPyqfzh-Aum1tG" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
-                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <span class="text-primary text-sm font-bold mb-1">فيلم وثائقي</span>
-                        <h3 class="text-xl font-bold text-white">ألوان الصحراء</h3>
+                <div class="portfolio-card bg-panel rounded-lg overflow-hidden border border-white/5 group" data-category="visual" onclick="openLb('img', 'https://drive.google.com/uc?export=view&id=142SeMsEnpPyoNtucsSAwhLtYBZ38o9bm')">
+                    <div class="h-52 overflow-hidden relative img-zoom">
+                        <img src="https://drive.google.com/uc?export=view&id=142SeMsEnpPyoNtucsSAwhLtYBZ38o9bm" alt="ألوان الصحراء" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <span class="absolute top-3 right-3 bg-black/60 text-primary font-bold text-[10px] px-2 py-1 rounded z-20">مرئي</span>
                     </div>
+                    <div class="p-4"><h3 class="font-bold text-base text-white">ألوان الصحراء</h3></div>
                 </div>
 
-                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
-                    <img src="https://drive.google.com/uc?export=view&id=142SeMsEnpPyoNtucsSAwhLtYBZ38o9bm" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
-                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <span class="text-primary text-sm font-bold mb-1">تغطية</span>
-                        <h3 class="text-xl font-bold text-white">موسم الرياض</h3>
+                <div class="portfolio-card bg-panel rounded-lg overflow-hidden border border-white/5 group" data-category="visual" onclick="openLb('img', 'https://drive.google.com/uc?export=view&id=1jmHhhtGw6MWyX2A9nymN8w0K0FI4KJZS')">
+                    <div class="h-52 overflow-hidden relative img-zoom">
+                        <img src="https://drive.google.com/uc?export=view&id=1jmHhhtGw6MWyX2A9nymN8w0K0FI4KJZS" alt="رؤية تتشكل" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <span class="absolute top-3 right-3 bg-black/60 text-primary font-bold text-[10px] px-2 py-1 rounded z-20">مرئي</span>
                     </div>
+                    <div class="p-4"><h3 class="font-bold text-base text-white">رؤية تتشكل</h3></div>
                 </div>
 
-                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
-                    <img src="https://drive.google.com/uc?export=view&id=1jmHhhtGw6MWyX2A9nymN8w0K0FI4KJZS" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
-                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <span class="text-primary text-sm font-bold mb-1">هوية سمعية</span>
-                        <h3 class="text-xl font-bold text-white">أثير المكان</h3>
+                <div class="portfolio-card bg-panel rounded-lg overflow-hidden border border-white/5 group" data-category="event" onclick="openLb('img', 'https://drive.google.com/uc?export=view&id=1uh6mABucf_ZJmLy29iCJEH2POHRVsv4D')">
+                    <div class="h-52 overflow-hidden relative img-zoom">
+                        <img src="https://drive.google.com/uc?export=view&id=1uh6mABucf_ZJmLy29iCJEH2POHRVsv4D" alt="موسم الرياض" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <span class="absolute top-3 right-3 bg-black/60 text-primary font-bold text-[10px] px-2 py-1 rounded z-20">فعاليات</span>
                     </div>
+                    <div class="p-4"><h3 class="font-bold text-base text-white">موسم الرياض</h3></div>
                 </div>
 
-                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
-                    <img src="https://drive.google.com/uc?export=view&id=1uh6mABucf_ZJmLy29iCJEH2POHRVsv4D" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
-                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <span class="text-primary text-sm font-bold mb-1">إعلان</span>
-                        <h3 class="text-xl font-bold text-white">قيادة الطموح</h3>
+                <div class="portfolio-card bg-panel rounded-lg overflow-hidden border border-white/5 group" data-category="event" onclick="openLb('img', 'https://drive.google.com/uc?export=view&id=1IDlNk_-eAF_PaiydDAovwr0DnbfT5NUG')">
+                    <div class="h-52 overflow-hidden relative img-zoom">
+                        <img src="https://drive.google.com/uc?export=view&id=1IDlNk_-eAF_PaiydDAovwr0DnbfT5NUG" alt="مائدة" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <span class="absolute top-3 right-3 bg-black/60 text-primary font-bold text-[10px] px-2 py-1 rounded z-20">فعاليات</span>
                     </div>
+                    <div class="p-4"><h3 class="font-bold text-base text-white">مائدة</h3></div>
                 </div>
 
-                <div class="portfolio-item relative rounded-xl overflow-hidden aspect-[4/3] group">
-                    <img src="https://drive.google.com/uc?export=view&id=1IDlNk_-eAF_PaiydDAovwr0DnbfT5NUG" alt="عمل فني" class="w-full h-full object-cover transition duration-500">
-                    <div class="portfolio-overlay absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <span class="text-primary text-sm font-bold mb-1">تغطية</span>
-                        <h3 class="text-xl font-bold text-white">التقنية تتكلم</h3>
+                <div class="portfolio-card bg-panel rounded-lg overflow-hidden border border-white/5 group" data-category="audio" onclick="openLb('img', 'https://drive.google.com/uc?export=view&id=1VRDBefgd8ibgVXTngCsQPpCUIH9IcOER')">
+                    <div class="h-52 overflow-hidden relative img-zoom">
+                        <img src="https://drive.google.com/uc?export=view&id=1VRDBefgd8ibgVXTngCsQPpCUIH9IcOER" alt="أرض وماء" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <span class="absolute top-3 right-3 bg-black/60 text-primary font-bold text-[10px] px-2 py-1 rounded z-20">صوتيات</span>
                     </div>
+                    <div class="p-4"><h3 class="font-bold text-base text-white">أرض وماء</h3></div>
+                </div>
+
+                <div class="portfolio-card bg-panel rounded-lg overflow-hidden border border-white/5 group" data-category="audio" onclick="openLb('img', 'https://drive.google.com/uc?export=view&id=1_GpEhl8wgLP33sjZyltkYNvxKHAIcmIp')">
+                    <div class="h-52 overflow-hidden relative img-zoom">
+                        <img src="https://drive.google.com/uc?export=view&id=1_GpEhl8wgLP33sjZyltkYNvxKHAIcmIp" alt="إرث البيان" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <span class="absolute top-3 right-3 bg-black/60 text-primary font-bold text-[10px] px-2 py-1 rounded z-20">صوتيات</span>
+                    </div>
+                    <div class="p-4"><h3 class="font-bold text-base text-white">إرث البيان</h3></div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <footer class="bg-black py-6 text-center text-gray-600 text-sm">
+    <footer class="bg-black py-6 text-center text-gray-600 text-xs border-t border-white/5">
         <p>جميع الحقوق محفوظة لشركة قفّاز &copy; 2026</p>
     </footer>
+
+    <div class="lb" id="lb" onclick="closeLb(event)">
+        <div class="lb-inner">
+            <button class="lb-close" onclick="closeLb()">✕</button>
+            <img id="lb-img" src="" alt="" style="display:none">
+        </div>
+    </div>
+
+    <script>
+        // 1. نظام النافذة المنبثقة (Lightbox) للصور
+        function openLb(type, src) {
+            const lb = document.getElementById('lb');
+            const img = document.getElementById('lb-img');
+            img.src = src; 
+            img.style.display = 'block';
+            lb.classList.add('on');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLb(e) {
+            if(e && e.target !== document.getElementById('lb') && !e.target.classList.contains('lb-close')) return;
+            document.getElementById('lb').classList.remove('on');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb({target:document.getElementById('lb')}); });
+
+        // 2. نظام فلترة الأعمال
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // إزالة التفعيل عن جميع الأزرار وإضافته للزر المضغوط
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                portfolioCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => { card.style.opacity = '1'; }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => { card.style.display = 'none'; }, 300);
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
